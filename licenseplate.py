@@ -38,7 +38,7 @@ class Solution:
 
         result = 1
         for i in range(24, 24 + c):
-            results *= i
+            result *= i
         for i in range(7, 7 + k):
             result *= i
 
