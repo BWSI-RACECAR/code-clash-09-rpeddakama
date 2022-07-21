@@ -27,32 +27,22 @@ class Solution:
     def licensePlate(self, str):
         # type str: string
         # return: int
-        letters = []
-        numbers = []
-        l_dotcount = 0
-        n_dotcount = 0
+        c = 0
+        for i in range(0, 3):
+            if str[i] == ".":
+                c += 1
+        k = 0
+        for i in range(3, 7):
+            if str[i] == ".":
+                k += 1
 
-        for i in range(3):
-            if str[i] != ".":
-                letters.append(str[i])
-            else:
-                l_dotcount += 1
-        for i in range(3, len(str)):
-            if str[i] != ".":
-                numbers.append(str[i])
-            else:
-                n_dotcount += 1
+        result = 1
+        for i in range(24, 24 + c):
+            results *= i
+        for i in range(7, 7 + k):
+            result *= i
 
-        if n_dotcount + l_dotcount == 0:
-            return 0
-
-        ans = 1
-        for i in range(l_dotcount):
-            ans = ans * (26 - (len(letters) - (i)))
-        for i in range(n_dotcount):
-            ans = ans * (10 - (len(numbers) - (i)))
-
-        return ans
+        return result
 
 
 def main():
